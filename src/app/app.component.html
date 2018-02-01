@@ -1,20 +1,48 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div>
+  <div *ngIf="loggedIn === true">
+    <img src="{{ user.photoUrl }}">
+    <div>
+      <h4>{{ user.name }}</h4>
+      <h4>{{ user.email }}</h4>
+    </div>
+  </div>
+  <button mat-raised-button (click)="signInWithGoogle()" *ngIf="loggedIn === false">Login with Google</button>
+  <button mat-raised-button (click)="signInWithFB()" *ngIf="loggedIn === false">Login with Facebook</button>
+  <button mat-raised-button *ngIf="loggedIn === true" (click)="signOut()">Sign Out</button>
+  <h1 [hidden]="!clicked">Text: {{input.value}}</h1>
+  <h1 [hidden]="clicked">Please show the component to change me!</h1>
+  <button mat-raised-button color="primary" (click)="clicked = true" *ngIf="clicked === false">Show</button>
+  <button mat-raised-button color="warn" (click)="clicked = false" *ngIf="clicked === true">Hide</button>
+  <div [hidden]="!clicked">
+    <mat-form-field>
+      <input #input matInput placeholder="Text Here">
+    </mat-form-field>
+    <h2>Log <button mat-raised-button (click)="updateLog(input.value)">Update Log</button> <button mat-raised-button (click)="log = ''">Clear Log</button></h2>
+    <pre>{{log}}</pre>
+  </div>
 
+  <div>
+    <h1>Test f(x) Calculator</h1>
+    <mat-form-field>
+      <input #minp matInput placeholder="Input M Value Here">
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <input #binp matInput placeholder="Input B Value Here">
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <input #finp matInput placeholder="Input 'From' Value Here">
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <input #tinp matInput placeholder="Input 'To' Value Here">
+    </mat-form-field>
+    <button mat-raised-button color="warn" (click)="this.performFunction(minp.value, binp.value, finp.value, tinp.value)">Send Function</button>
+    <button mat-raised-button color="warn" (click)="this.func = ''; this.x = 0; this.log2 = ''; minp.value = null; binp.value = null; finp.value = null; tinp.value = null;">Clear All</button>
+    <br />
+    <mat-divider></mat-divider>
+    <h1>Output from Calculator</h1>
+    <pre>f(x) = <pre>{{ log2 }}</pre></pre>
+  </div>
+</div>
