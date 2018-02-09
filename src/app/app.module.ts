@@ -101,13 +101,12 @@ const config = new AuthServiceConfig([
 })
 export class AppModule {}
 
-@ngModule({
+@NgModule({
   exports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    SocialLoginModule.initialize(config),
     MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
