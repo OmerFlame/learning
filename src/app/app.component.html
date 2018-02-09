@@ -17,8 +17,20 @@
     <mat-form-field>
       <input #input matInput placeholder="Text Here">
     </mat-form-field>
-    <h2>Log <button mat-raised-button (click)="updateLog(input.value)">Update Log</button> <button mat-raised-button (click)="log = ''">Clear Log</button></h2>
-    <pre>{{log}}</pre>
+    <mat-divider></mat-divider>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Test</mat-card-title>
+        <mat-card-subtitle>Log changes here</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <pre>{{ log }}</pre>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="primary" (click)="updateLog(input.value)">UPDATE LOG</button>
+        <button mat-button color="warn" (click)="clearLog(); input.value = '';">CLEAR ALL</button>
+      </mat-card-actions>
+    </mat-card>
   </div>
 
   <div>
