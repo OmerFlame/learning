@@ -37,6 +37,10 @@ export class AppComponent implements OnInit {
     this.log += `Text changed to '${value}'\n`;
   }
 
+  clearLog(): void {
+    this.log = '';
+  }
+
   constructor(private authService: AuthService) {
   }
 
