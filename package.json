@@ -25,7 +25,9 @@
     "@angular/router": "^5.0.0",
     "angular4-social-login": "^1.1.1",
     "core-js": "^2.4.1",
+    "qrcode": "^1.2.0",
     "rxjs": "^5.5.6",
+    "speakeasy": "^2.0.0",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
